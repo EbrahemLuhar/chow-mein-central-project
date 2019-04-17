@@ -1,0 +1,248 @@
+body {
+  &.gallery-bg {
+    background: gray;
+  }
+}
+
+// Mobile Navbar
+#gallery-mobile-menu {
+  display: block;
+  position: fixed;
+  z-index: 999;
+  top: 30px;
+  right: 30px;
+  width: 36px;
+  height: 24px;
+  cursor: pointer;
+
+  input {
+    display: none;
+    &:checked {
+      ~ .gallery-burger {
+        span {
+          margin: 0;
+          transition: all 0.2s linear;
+
+          &:first-child {
+            transform-origin: 75% 0%;
+            transform: rotate(315deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:last-of-type {
+            transform-origin: 75% 100%;
+            transform: rotate(-315deg);
+          }
+        }
+      }
+    }
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    background: white;
+    transition: all 0.2s linear;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
+  }
+}
+.gallery-mobile-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 100vw;
+  transition: all 0.3s linear;
+  background-color: darkred;
+  z-index: 10;
+
+  &.active {
+    left: 0vw;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 1rem;
+    color: white;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: yellow;
+    }
+  }
+}
+
+// Gallery Slider
+#gallery-section,
+.slider,
+.slide-content {
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+#gallery-section {
+  position: relative;
+
+  .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  #arrow-left {
+    left: 0;
+    margin-left: 5px;
+
+    .fa-chevron-left {
+      font-size: 4rem;
+      color: white;
+      padding: 10px;
+      text-shadow: 0px 0px 2px #000000;
+    }
+  }
+  #arrow-right {
+    right: 0;
+    margin-right: 65px;
+
+    .fa-chevron-right {
+      font-size: 4rem;
+      color: white;
+      padding: 10px;
+      text-shadow: 0px 0px 2px #000000;
+    }
+  }
+
+  .slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .slide1 {
+    background-image: url("https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/slider-1.jpeg");
+  }
+  .slide2 {
+    background-image: url("https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/slider2.jpeg");
+  }
+  .slide3 {
+    background-image: url("https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/slider3.jpeg");
+  }
+  .slide4 {
+    background-image: url("https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/slider4.jpeg");
+  }
+  .slide5 {
+    background-image: url("https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/slider5.jpeg");
+  }
+
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    span {
+      font-size: 5rem;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.3);
+      text-shadow: 0px 1px 2px #000000;
+      padding: 20px 40px;
+    }
+  }
+}
+
+/* Fade animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #gallery-section {
+    .slide-content {
+      span {
+        font-size: 3rem;
+      }
+    }
+
+    #arrow-left {
+      margin-top: -35px;
+
+      .fa-chevron-left {
+        font-size: 3rem;
+      }
+    }
+
+    #arrow-right {
+      margin-top: -35px;
+
+      .fa-chevron-right {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #gallery-section {
+    .slide-content {
+      span {
+        font-size: 2.3rem;
+      }
+    }
+
+    #arrow-left {
+      margin-top: -25px;
+
+      .fa-chevron-left {
+        font-size: 2rem;
+      }
+    }
+
+    #arrow-right {
+      margin-top: -25px;
+
+      .fa-chevron-right {
+        font-size: 2rem;
+      }
+    }
+  }
+}

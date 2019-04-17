@@ -1,0 +1,140 @@
+#popular-section {
+  .container {
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .popular-center {
+      text-align: center;
+      max-width: 900px;
+      display: block;
+      margin: 0 auto;
+      padding-bottom: 5rem;
+
+      .popular-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+
+        .row {
+          display: grid;
+          margin: 0 10px;
+          padding: 2rem 3rem;
+          justify-items: center;
+          align-items: center;
+          grid-template-columns: 2fr 1fr 2fr;
+          -webkit-box-shadow: 0px 8px 20px 2px rgba(0, 0, 0, 0.08);
+          -moz-box-shadow: 0px 8px 20px 2px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 8px 20px 2px rgba(0, 0, 0, 0.08);
+          transition: all 0.2s ease-in-out;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            -webkit-box-shadow: 0px 0px 25px 6px rgba(0, 0, 0, 0.19);
+            -moz-box-shadow: 0px 0px 25px 6px rgba(0, 0, 0, 0.19);
+            box-shadow: 0px 0px 25px 6px rgba(0, 0, 0, 0.19);
+
+            background-color: white;
+            .dish {
+              color: red;
+            }
+
+            .fa-pepper-hot {
+              color: red;
+            }
+
+            .ingredients {
+              color: gray;
+            }
+          }
+
+          .dish {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+            text-align: left;
+          }
+
+          .fa-pepper-hot {
+            font-size: 1.4rem;
+            color: lightsalmon;
+          }
+
+          .ingredients {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: lightsalmon;
+            text-align: left;
+            line-height: 1.5;
+            padding-left: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #popular-section {
+    .container {
+      .subtitle {
+        font-size: 2.5rem;
+      }
+      .popular-center {
+        padding-bottom: 0rem;
+        .popular-wrapper {
+          .row {
+            .dish {
+              font-size: 1.4rem;
+              text-align: center;
+            }
+            .fa-pepper-hot {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #popular-section {
+    .container {
+      .subtitle {
+        font-size: 2.3rem;
+        margin-bottom: 2rem;
+      }
+      .popular-center {
+        .popular-wrapper {
+            margin: 0 10px;
+          .row {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .dish {
+              font-size: 1.6rem;
+              text-align: center;
+              padding-bottom: 0.8rem;
+            }
+            .fa-pepper-hot {
+              font-size: 1.4rem;
+              padding-bottom: 0.8rem;
+            }
+            .ingredients {
+              padding-left: 0rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

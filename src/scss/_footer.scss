@@ -1,0 +1,224 @@
+footer {
+  background-color: #1f1f1f;
+  border-top: 5px solid yellow;
+  color: lightgray;
+
+  .container {
+    padding: 130px 0 20px;
+    .footer-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .footer-contact {
+        padding-top: 1.5rem;
+
+        h4 {
+          font-weight: 400;
+          color: yellow;
+          padding-bottom: 1.5rem;
+          padding-left: 3rem;
+        }
+
+        .contact-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          grid-template-rows: 1fr 1fr;
+          grid-gap: 1rem 0;
+          padding: 0 3rem;
+
+          .bold-text {
+            font-weight: 600;
+          }
+
+          .address-text {
+            line-height: 1.3;
+          }
+
+          .phone-number {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9rem;
+            margin-top: 2px;
+          }
+        }
+      }
+
+      .media-and-links {
+        display: flex;
+        flex-direction: column;
+
+        .links-wrapper {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: 1fr 1fr;
+
+          .links {
+            display: flex;
+            align-items: center;
+
+            .dot {
+              height: 5px;
+              width: 5px;
+              background-color: yellow;
+              border-radius: 50%;
+              display: inline-block;
+            }
+
+            a {
+              text-decoration: none;
+              font-size: 0.8rem;
+              font-family: "Raleway", sans-serif;
+              font-weight: 600;
+              color: white;
+              display: inline-block;
+              padding: 0.8rem;
+              transition: all 0.2s ease-in-out;
+
+              &:hover {
+                color: yellow;
+              }
+            }
+          }
+        }
+
+        .social-media-container {
+          .social-media {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding-top: 1.2rem;
+            padding-bottom: 1.6rem;
+            margin-left: 1rem;
+
+            .social-link {
+              text-decoration: none;
+              margin-right: 4rem;
+              background: red;
+              width: 3.5rem;
+              height: 3.5rem;
+              text-align: center;
+              border-radius: 50%;
+              border: 2px solid yellow;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                border: 2px solid white;
+
+                .fab {
+                  color: white;
+                }
+              }
+
+              .fab {
+                color: yellow;
+                font-size: 2.2rem;
+                margin-top: 0.5rem;
+                transition: all 0.3s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  footer {
+    .container {
+      padding: 40px 0 20px;
+
+      .footer-wrapper {
+        grid-template-columns: 1fr 2fr 2fr;
+
+        .footer-contact {
+          padding-top: 1.5rem;
+
+          h4 {
+            font-weight: 400;
+            color: yellow;
+            padding-bottom: 1.5rem;
+            padding-left: 1rem;
+          }
+
+          .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 1rem 0;
+            padding: 0 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  footer {
+    .container {
+      padding: 40px 0 20px;
+
+      .footer-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: 125px 1fr 1fr;
+
+        .footer-logo {
+          width: 100%;
+
+          img {
+            width: 50%;
+            min-width: 280px;
+          }
+        }
+
+        .footer-contact {
+          padding-top: 1rem;
+          display: block;
+          margin: 0 auto;
+
+          .contact-wrapper {
+            grid-gap: 1rem;
+          }
+        }
+
+        .media-and-links {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .links-wrapper {
+            .links {
+              a {
+                padding: 0.8rem;
+              }
+            }
+          }
+
+          .social-media-container {
+            .social-media {
+              padding-top: 1rem;
+              padding-bottom: 1rem;
+              margin-left: 0rem;
+  
+              .social-link {
+                margin: 0 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

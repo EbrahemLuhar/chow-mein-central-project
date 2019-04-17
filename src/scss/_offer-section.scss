@@ -1,0 +1,277 @@
+#offer-section {
+  color: white;
+
+  .container {
+    max-width: 950px;
+    margin-bottom: 2rem;
+
+    .offer-wrapper {
+      height: 650px;
+
+      .offer-wrapper::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .offer-left {
+        display: inline-block;
+        width: 42%;
+        float: left;
+        padding-bottom: 10rem;
+
+        .offer-text {
+          background-color: white;
+          color: black;
+          padding: 2.9rem 3rem 3rem;
+
+          h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding-bottom: 1rem;
+            color: red;
+          }
+
+          h2 {
+            font-size: 3.6rem;
+            font-weight: 600;
+            padding-bottom: 1.5rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: gray;
+            line-height: 1.5;
+            padding-bottom: 2rem;
+          }
+
+          h3 {
+            font-family: Tahoma, sans-serif;
+            font-size: 2.6rem;
+            font-weight: 600;
+            padding-bottom: 3.5rem;
+            color: darkred;
+          }
+
+          .menu-btn-wrap {
+            margin-bottom: 0;
+            a {
+              display: grid;
+              grid-template-columns: 100px 70px;
+              grid-template-rows: 1fr;
+              justify-items: center;
+              align-items: center;
+              text-decoration: none;
+              text-align: center;
+              width: 130px;
+              color: white;
+              background-color: orange; 
+
+              &:hover {
+                span {
+                  -webkit-box-shadow: 3px 4px 5px 0px rgba(194,194,194,1);
+                  -moz-box-shadow: 3px 4px 5px 0px rgba(194,194,194,1);
+                  box-shadow: 3px 4px 5px 0px rgba(194,194,194,1);
+                }
+        
+                .fa {
+                  -webkit-box-shadow: 3px 4px 5px 0px rgba(194,194,194,1);
+                  -moz-box-shadow: 3px 4px 5px 0px rgba(194,194,194,1);
+                  box-shadow: 3px 4px 5px 0px rgba(194,194,194,1);
+                }
+              }
+
+              span {
+                font-size: 1rem;
+                background: orange;
+                width: 100%;
+                height: 100%;
+                padding: 20px 30px;
+                transition: all 0.3s ease-in-out;
+              }
+        
+              .fa-angle-right{
+                font-size: 2.7rem;
+                color: white;
+                background-color: darkorange;
+                width: 100%;
+                height: 100%;
+                padding-top: 5px;
+                transition: all 0.3s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+
+      .offer-right {
+        display: inline-block;
+        width: 58%;
+        float: left;
+
+        $switch-speed: 1s;
+        $slider-number: 5;
+        $slider-width: 100% / $slider-number;
+
+        $image1: "https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/offer-seafood-img.jpg";
+        $image2: "https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/offer-beef-img.jpg";
+        $image3: "https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/offer-starter-img.jpg";
+
+        .outer-wrapper {
+          width: 100%;
+          margin: -3.7rem auto;
+        }
+
+        // basic styles
+        .s-wrap {
+          width: 100%;
+          padding-bottom: 120%;
+          position: relative;
+          border: 4px solid #fff;
+          background-color: #efefe8;
+          overflow: hidden;
+
+          > input {
+            display: none;
+          }
+
+          .s-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% * $slider-number;
+            height: 100%;
+            font-size: 0;
+            list-style: none;
+            transition: transform $switch-speed;
+          }
+
+          .s-item {
+            display: inline-block;
+            width: $slider-width;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .s-item-1 {
+            background-image: url($image1);
+          }
+          .s-item-2 {
+            background-image: url($image2);
+          }
+          .s-item-3 {
+            background-image: url($image3);
+          }
+        }
+
+        .s-type-1 {
+          .s-control {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            text-align: center;
+            transform: translateX(-50%);
+            transition-timing-function: ease-out;
+
+            > label[class^="s-c-"] {
+              display: inline-block;
+              width: 12px;
+              height: 12px;
+              margin-right: 10px;
+              border-radius: 50%;
+              border: 2px solid gray;
+              background-color: #efefe8;
+              cursor: pointer;
+            }
+          }
+
+          @for $i from 1 through $slider-number {
+            #s-#{$i}:checked {
+              & ~ .s-content {
+                transform: translateX(-$slider-width * ($i - 1));
+              }
+
+              & ~ .s-control .s-c-#{$i} {
+                background-color: yellow;
+              }
+
+              & ~ .s-nav .s-nav-#{$i} {
+                display: block;
+              }
+            }
+          }
+        }
+
+        .s-type-2 {
+          .s-content {
+            animation: slider-animation 50s ease-in-out infinite;
+
+            &:hover {
+              animation-play-state: paused;
+            }
+          }
+        }
+
+        @keyframes slider-animation {
+          $i: 0;
+          $j: 0;
+          $times: ($slider-number - 1) * 2;
+          @while $i < 100 {
+            #{$i}%,
+            #{$i + 7}% {
+              @if $i < 50 {
+                transform: translateX(-$slider-width * $j);
+              } @else {
+                transform: translateX(-$slider-width * ($times - $j));
+              }
+            }
+
+            $i: $i + 100 / $times;
+            $j: $j + 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1230px) {
+  #offer-section {
+    .container {
+      padding-bottom: 0;
+      .offer-wrapper {
+        height: 550px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #offer-section {
+    .container {
+      .offer-wrapper {
+        .offer-left {
+          width: 50%;
+          margin-top: -6.2%;
+          height: 100%;
+
+          .offer-text {
+            width: 100%;
+            height: auto;
+            padding: 4.4rem 3rem;
+          }
+        }
+        .offer-right {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 956px) {
+  #offer-section {
+    display: none;
+  }
+}

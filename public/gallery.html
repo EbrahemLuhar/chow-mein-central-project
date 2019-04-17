@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CHOW MEIN CENTRAL</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="gallery-bg">
+    
+    <label id="gallery-mobile-menu" for="gallery-burger">
+      <input type="checkbox" name="gallery-burger" id="gallery-burger">
+      <div class="gallery-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </label>
+
+    <div class="gallery-mobile-navbar">
+      <a href="./index.html" class="mobile-link">Home</a>
+      <a href="./menu.html" class="mobile-link">Menu</a>
+      <a href="./about.html" class="mobile-link">About</a>
+      <a href="./gallery.html" class="mobile-link">Gallery</a>
+      <a href="./venue.html" class="mobile-link">Venue</a>
+      <a href="./reserve.html" class="mobile-link">Reserve</a>
+    </div>
+
+    <section id="gallery-section">
+      <div id="slider">
+        <div class="slide slide1 fade">
+          <div class="slide-content">
+            <span>Chicken Chow Mein</span>
+          </div>
+        </div>
+        <div class="slide slide2 fade">
+          <div class="slide-content">
+            <span>Starter Snack Mix</span>
+          </div>
+        </div>
+        <div class="slide slide3 fade">
+          <div class="slide-content">
+            <span>Veg Dumplings</span>
+          </div>
+        </div>
+        <div class="slide slide4 fade">
+          <div class="slide-content">
+            <span>Passionate Chefs</span>
+          </div>
+        </div>
+        <div class="slide slide5 fade">
+          <div class="slide-content">
+            <span>Amazing Atmosphere</span>
+          </div>
+        </div>
+        <div id="arrow-left" class="arrow">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div id="arrow-right" class="arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container smaller-container">
+        <div class="footer-wrapper">
+          <div class="footer-logo">
+            <img
+              src="https://raw.githubusercontent.com/EbrahemLuhar/chinese-restaurant-images/master/chinese-restaurant-logo.png"
+              alt="Logo"
+            />
+          </div>
+          <div class="footer-contact">
+            <h4>GET IN TOUCH</h4>
+            <div class="contact-wrapper">
+              <p class="bold-text">Address:</p>
+              <div>
+                <p class="address-text">223 Eastbrook Road</p>
+                <p class="address-text">Swindon Park</p>
+                <p class="address-text">Warwick</p>
+              </div>
+              <p class="bold-text">Phone:</p>
+              <p class="phone-number">0118 338 9102</p>
+            </div>
+          </div>
+          <div class="media-and-links">
+            <div class="links-wrapper">
+              <div class="links">
+                <div class="dot"></div>
+                <a href="./index.html">HOME</a>
+              </div>
+              <div class="links">
+                <div class="dot"></div>
+                <a href="./menu.html">MENU</a>
+              </div>
+              <div class="links">
+                <div class="dot"></div>
+                <a href="./about.html">ABOUT</a>
+              </div>
+              <div class="links">
+                <div class="dot"></div>
+                <a href="./gallery.html">GALLERY</a>
+              </div>
+              <div class="links">
+                <div class="dot"></div>
+                <a href="./venue.html">VENUE</a>
+              </div>
+              <div class="links">
+                <div class="dot"></div>
+                <a href="./reserve.html">RESERVE</a>
+              </div>
+            </div>
+            <div class="social-media-container">
+              <div class="social-media">
+                <a class="social-link"
+                   href="https://www.facebook.com/"
+                   target="_blank">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="social-link"
+                   href="https://www.instagram.com/?hl=en"
+                   target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a class="social-link"
+                   href="https://twitter.com/"
+                   target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      var sliderImages = document.querySelectorAll('.slide'),
+        arrowLeft = document.querySelector('#arrow-left'),
+        arrowRight = document.querySelector('#arrow-right'),
+        current = 0;
+
+      // Clear images
+      function reset() {
+        for(var i = 0; i < sliderImages.length; i++) {
+            sliderImages[i].style.display = 'none';
+        }
+      }
+
+      // Init Slider
+      function startSlide() {
+        reset();
+        sliderImages[0].style.display = 'block';
+      }
+
+      // Show Prev
+      function slideLeft() {
+        reset();
+        sliderImages[current - 1].style.display = 'block';
+        current--;
+      }
+
+      // Show Next
+      function slideRight() {
+        reset();
+        sliderImages[current + 1].style.display = 'block';
+        current++;
+      }
+
+      // Left arrow click
+      arrowLeft.addEventListener('click', function() {
+        if(current === 0) {
+          current = sliderImages.length;
+        }
+        slideLeft();
+      });
+
+      // Right arrow click
+      arrowRight.addEventListener('click', function() {
+        if(current === sliderImages.length - 1) {
+          current = -1;
+        }
+        slideRight();
+      });
+
+      startSlide();
+
+      // Mobile Navbar
+      var gallery_burger_checkbox = document.getElementById('gallery-burger');
+      var gallery_navbar = document.querySelector('.gallery-mobile-navbar');
+
+      gallery_burger_checkbox.addEventListener("change", function() {
+          gallery_navbar.classList.toggle('active')
+      });
+    </script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

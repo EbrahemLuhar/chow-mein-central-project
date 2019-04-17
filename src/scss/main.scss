@@ -1,0 +1,256 @@
+@import "reset";
+@import "top-section";
+@import "popular-section";
+@import "offer-section";
+@import "opening-section";
+@import "footer";
+
+// Pages
+@import "menu-section";
+@import "about-section";
+@import "gallery-section";
+@import "venue-section";
+@import "reserve-section";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,600,700');
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+// Navbar
+
+html {
+    height: 100%;
+} 
+body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(135deg, rgba(255,5,9,1) 0%,rgba(109,0,25,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Raleway', sans-serif;
+    
+
+    #header {
+        max-width: 1200px;
+        margin: 0 auto;
+    
+        .navbar {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .nav-left {
+                width: 40%;
+
+                .nav-left::after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+
+                .navlink {
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    font-family: 'Raleway', sans-serif;
+                    font-weight: 700;
+                    color: white; 
+                    display: inline-block;
+                    float: right;
+                    padding: 0 22px;
+                    transition: all .4s ease-in-out;
+
+                    &:hover {
+                        color: yellow;
+                    }
+                }
+        
+                .dot {
+                    height: 5px;
+                    width: 5px;
+                    background-color: yellow; 
+                    border-radius: 50%;
+                    display: inline-block;
+                    float: right;
+                    margin-top: 4px;
+                }
+            }
+    
+            .nav-center {
+                width: 20%;
+                text-align: center;
+                .logolink {
+                    text-decoration: none;
+                    img {
+                        width: 200px;
+                        padding: 20px 0;
+                    }
+                }
+            }
+
+            .nav-right {
+                width: 40%;
+
+                .nav-left::after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+
+                .navlink {
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    font-family: 'Raleway', sans-serif;
+                    font-weight: 700;
+                    color: white; 
+                    display: inline-block;
+                    float: left;
+                    padding: 0 22px;
+                    transition: all .4s ease-in-out;
+
+                    &:hover {
+                        color: yellow;
+                    }
+                }
+        
+                .dot {
+                    height: 5px;
+                    width: 5px;
+                    background-color: yellow; 
+                    border-radius: 50%;
+                    display: inline-block;
+                    float: left;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}
+
+// Mobile Menu
+
+.mobile-logolink {
+    display: none;
+}
+
+.mobile-navbar {
+    display: none;
+}
+
+
+#mobile-menu {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    top: 30px;
+    right: 30px;
+    width: 35px;
+    height: 23px;
+    cursor: pointer;
+
+    input {
+        display: none;
+        &:checked {
+            ~ .burger {
+                span {
+                    margin: 0;
+                    transition: all .2s linear;
+
+                    &:first-child {
+                        transform-origin: 75% 0%;
+                        transform:  rotate(315deg);
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    &:last-of-type {
+                        transform-origin: 75% 100%;
+                        transform:  rotate(-315deg);
+                    }
+                }
+            }
+        }
+    }
+
+    span {
+        display: block;
+        width: 100%;
+        height: 5px;
+        margin-bottom: 4px;
+        border-radius: 3px;
+        background: yellow;
+        transition: all 0.2s linear;
+        &:last-of-type {
+            margin-bottom: 0px;
+        } 
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    body {
+        
+        
+        .navbar {
+            display: none !important;
+        }
+    
+        .mobile-logolink {
+            display: block;
+            position: absolute;
+            z-index: 999;
+            top: 20px;
+            left: 6px;
+            text-decoration: none;
+            img {
+                width: 150px;
+            }
+        }
+    
+        #mobile-menu {
+            display: block;
+        }
+    
+        .mobile-navbar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            left: 100vw;
+            transition: all 0.3s linear;
+            background-color: darkred;  
+            z-index: 10;
+    
+            &.active {
+                left: 0vw;
+            }
+            
+            a {
+                text-decoration: none;
+                font-size: 1.3rem;
+                padding: 1rem;
+                color: white;
+                transition: all 0.3s ease-in-out;
+    
+                &:hover {
+                    color: yellow;
+                }
+            }
+        }
+    }
+}
+

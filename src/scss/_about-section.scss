@@ -1,0 +1,127 @@
+#about-section {
+  padding: 3rem 0;
+  animation: fade-in-move-up 1s;
+  min-height: 85%;
+  display: flex;
+  align-items: center;
+
+  .about-container {
+    background: white;
+    padding: 5% 5% 0;
+    display: block;
+    margin: 0 auto;
+    padding-top: 3rem;
+    max-width: 850px;
+    -webkit-box-shadow: 0px 5px 17px 4px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 0px 5px 17px 4px rgba(0, 0, 0, 0.33);
+    box-shadow: 0px 5px 17px 4px rgba(0, 0, 0, 0.33);
+
+    h1 {
+      font-size: 3.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 1rem 0.2rem;
+    }
+
+    .about-wrapper {
+      padding: 5%;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: left;
+        padding-bottom: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: left;
+        padding-bottom: 1rem;
+        line-height: 1.4;
+        color: #3f3f3f;
+      }
+
+      .faq-title {
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .faq-wrapper {
+        padding: 0.8rem 0;
+        .faq {
+          display: grid;
+          grid-template-columns: 30px 1fr;
+          grid-template-rows: 30px 1fr;
+          padding-bottom: 2rem;
+
+          p {
+            font-size: 1rem;
+            font-weight: 400;
+            padding-bottom: 0;
+            text-align: left;
+            line-height: 1.2;
+
+            &.bold-text {
+              font-weight: 600;
+            }
+
+            &.light-text {
+              color: #3f3f3f;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Page fade in and up animation
+@keyframes fade-in-move-up {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #about-section {
+    padding: 5rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #about-section {
+    padding: 5rem 1rem;
+
+    .about-container {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .about-wrapper {
+        h2 {
+          font-size: 1.4rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        .faq-wrapper {
+          .faq {
+            p {
+                font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
