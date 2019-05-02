@@ -1,4 +1,4 @@
-# chow mein central project
+# Chow Mein Central Project
 
 ## About the project
 
